@@ -1,0 +1,116 @@
+      <div id="panel_adminmanagerment_id" class="display_block">
+
+      <div class="panel_float_general">
+        	<div class="content_admin_panel">
+            	<div class="content_admin_itemtitle"> 一般ユーザ ID </div>
+            </div>
+            <div class="content_admin_panel">
+            	<div class="content_admin_itemtitle" id="admin_item_color"> 防災従事者A ID </div>
+            </div>
+            <div class="content_admin_panel">
+            	<div class="content_admin_itemtitle"> 防災従事者B ID </div>
+            </div>
+        </div>
+        <div id="hidenshowpanel" class="panel_float_general collapse in">
+            <div class="content_admin_panel">
+              <div id="itemTitle1" class="content_admin_item"> 登録ID数：ｘｘ、login ID数：ｘｘ </div>
+            </div>
+            <div class="content_admin_panel">
+              <div id="itemTitle2" class="content_admin_item" data-toggle="collapse" data-target="#collapsetable1" onClick="ChangeColorPanel()" > 登録ID数：ｘｘ、login ID数：ｘｘ </div>
+              <div id="collapsetable1" class="collapse">
+                <table class="table_collapse_admin">
+                  <tr>
+                    <td><a id="collapse2ID" href="#collapse2">登録ID数</a></td>
+                    <td>ｘ ｘ</td>
+                  </tr>
+                  <tr>
+                    <td><a id="collapse3ID" href="#collapse3">承認待件数</a></td>
+                    <td>ｘ ｘ</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="content_admin_panel">
+              <div id="itemTitle3" class="content_admin_item"> 登録ID数：ｘｘ、login ID数：ｘｘ </div>
+            </div>
+        </div>
+
+        <div class="content_sub_table collapse" id="collapse2">
+          <div class="content_admin_itemtitle_sub">登録ID情報</div>
+          <table class="table_subitem">
+          	<tr>
+            	<td>&nbsp;</td>
+            	<td>Number</td>
+                <td>ID Name</td>
+                <td>ID (email)</td>
+                <td>施設名</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+            	<td><input type="checkbox" ng-model="entity.isChecked" ng-change="selectEntity()"></td>
+            	<td>bousai_001</td>
+                <td>bousai_001</td>
+                <td>bousai_001@admin.com</td>
+                <td>ビルA</td>
+                <td>登録</td>
+            </tr>
+            <tr>
+            	<td><input type="checkbox" ng-model="entity.isChecked" ng-change="selectEntity()"></td>
+            	<td>bousai_001</td>
+                <td>bousai_001</td>
+                <td>bousai_001@admin.com</td>
+                <td>ビルA</td>
+                <td>登録</td>
+            </tr>
+            <tr>
+            	<td><input type="checkbox" ng-model="entity.isChecked" ng-change="selectEntity()"></td>
+            	<td>bousai_001</td>
+                <td>bousai_001</td>
+                <td>bousai_001@admin.com</td>
+                <td>ビルA</td>
+                <td>登録</td>
+            </tr>
+          </table>
+        </div>
+
+        <div style="" class="content_sub_table collapse" id="collapse3">
+          <div class="content_admin_itemtitle_sub">承認依頼情報</div>
+          <table class="table_subitem">
+          	<tr>
+            	<td>&nbsp;</td>
+            	<td>Number</td>
+                <td>ID Name</td>
+                <td>ID (email)</td>
+                <td>施設名</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+            	<td><input type="checkbox" ng-model="entity.isChecked" ng-change="selectEntity()"></td>
+            	<td>bousai_001</td>
+                <td>bousai_001</td>
+                <td>bousai_001@admin.com</td>
+                <td>ビルA</td>
+                <td>登録</td>
+            </tr>
+            <tr>
+            	<td><input type="checkbox" ng-model="entity.isChecked" ng-change="selectEntity()"></td>
+            	<td>bousai_001</td>
+                <td>bousai_001</td>
+                <td>bousai_001@admin.com</td>
+                <td>ビルA</td>
+                <td>登録</td>
+            </tr>
+            <tr>
+            	<td><input type="checkbox" ng-model="entity.isChecked" ng-change="selectEntity()"></td>
+            	<td>bousai_001</td>
+                <td>bousai_001</td>
+                <td>bousai_001@admin.com</td>
+                <td>ビルA</td>
+                <td>登録</td>
+            </tr>
+          </table>
+        </div>
+
+        </div>
+
+

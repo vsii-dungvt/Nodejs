@@ -1,0 +1,120 @@
+<div id="damage" class="tab-pane fade">
+		      <ul class="nav nav-pills">
+		        <li ng-click="selectPreventionInfo()" class="colorpurplelight active">
+		        	<a data-toggle="pill" href="#preventionInfo">集計情報 （防災体制・拠点情報） 
+		        		<span ng-show="hasTrainStatisticUpdate || hasBuildingUpdate 
+	        				|| hasMedicalStatisticUpdate || hasPreventionUpdate" class="colorred">!</span></a></li>
+		        <li ng-click="selectDamageInfo()" class="colorpurplelight">
+		        	<a data-toggle="pill" href="#damageInfo">集計情報 （地域被害情報） 
+		        		<span ng-show="hasBuildingUpdate" class="colorred">!</span></a></li>
+      		  </ul> {{! /table header }}
+      		  <div class="tab-content">
+      		  	<div id="preventionInfo" class="tab-pane fade in active">
+      		  		<div class="table-responsive">
+        				<table class="table table-bordered">
+        					<tbody>
+        						<tr>
+        							<td rowspan="2" colspan="2">鉄道</td>
+        							<td rowspan="2" class="border_right_none">医療機関</td>
+        							<td colspan="2" class="border_left_none">&nbsp;</td>
+        							<td rowspan="2" colspan="2">一時滞在施設</td>
+        						</tr>
+        						<tr>
+        							<td class="border_left">受入可</td>
+        							<td>受入不可</td>
+        						</tr>
+        						{{{{raw-helper}}}}
+        						<tr ng-repeat="st in Statistic track by $index">
+								    <td>{{st.trainStatus}}</td>
+									<td ng-if="st.trainNumber >= 0">{{st.trainNumber}}件</td>
+									<td ng-if="st.trainNumber < 0"></td>
+									<td>{{st.medicalType}}</td>
+									<td ng-if="st.acceptance >= 0">{{st.acceptance}}件</td>
+									<td ng-if="st.acceptance < 0"></td>
+									<td ng-if="st.notAcceptance >= 0">{{st.notAcceptance}}件</td>
+									<td ng-if="st.notAcceptance < 0"></td>
+									<td>{{st.buildingStatus}}</td>
+									<td ng-if="st.buildingNumber >= 0">{{st.buildingNumber}}件</td>
+									<td ng-if="st.buildingNumber < 0"></td>
+								</tr>
+								{{{{/raw-helper}}}}
+        					</tbody>
+        				</table>
+        				<table class="table table-bordered table_prevention_info">
+        					<tbody>
+								<tr>
+        							<td>拠点名</td>
+        							<td>開設日時</td>
+        							<td>場所</td>
+        							<td>優先電話</td>
+        							<td>電話</td>
+        						</tr>
+        						{{{{raw-helper}}}}
+        						<tr ng-repeat="dOf in dOfficeInfo.dOffices track by dOf.dofficeId">
+								    <td ng-if="!isUserB">{{dOf.dofficeName}}</td>
+								    <td ng-if="isUserB"><button ng-click="saveDofficeInfo(dOf)">{{dOf.dofficeName}}</button></td>
+								    <td ng-if="!isUserB">{{dOf.formattedDofficeOpentime}}</td>
+        							<td ng-if="isUserB">
+        								<input type="text" uib-datepicker-popup="yyyy.MM.dd HH.mm" 
+        									ng-model="dOf.isoOpenTime" placeholder="yyyy.MM.dd HH.mm" />
+        							</td>
+        							<td>{{dOf.dofficeAddress}}</td>
+        							<td ng-if="!isUserB">{{dOf.dofficePhone1}}</td>
+        							<td ng-if="isUserB">
+        								<input type="tel" ng-model="dOf.dofficePhone1" 
+        									ng-pattern="/^\d{2}-\d{4}-\d{4}$/" required/>
+        							</td>
+        							<td ng-if="!isUserB">{{dOf.dofficePhone2}}</td>
+        							<td ng-if="isUserB">
+        								<input type="tel" ng-model="dOf.dofficePhone2" 
+        									ng-pattern="/^\d{2}-\d{4}-\d{4}$/" required/>
+        							</td>
+								</tr>
+								{{{{/raw-helper}}}}
+        					</tbody>
+        				</table>
+        			</div>		
+      		  	</div>
+      		  	<div id="damageInfo" class="tab-pane fade">
+      		  		<div class="table-responsive table_dammage_resources">
+        				<table class="table table-bordered">
+        					<tbody>
+        						<tr>
+        							<td></td>
+        							<td>使用可</td>
+        							<td>使用不可</td>
+        							<td>確認中</td>
+        						</tr>
+        						{{{{raw-helper}}}}
+        						<tr ng-repeat="sm in buildings.total.summaryResource track by $index">
+								    <td>{{sm.resourceName}}</td>
+									<td ng-if="sm.good >= 0">{{sm.good}}件</td>
+									<td ng-if="sm.good < 0"></td>
+									<td ng-if="sm.bad >= 0">{{sm.bad}}件</td>
+									<td ng-if="sm.bad < 0"></td>
+									<td ng-if="sm.checking >= 0">{{sm.checking}}件</td>
+									<td ng-if="sm.checking < 0"></td>
+								</tr>
+								{{{{/raw-helper}}}}
+        					</tbody>
+        				</table>
+        			</div>
+        			<div class="table-responsive table_dammage_people">
+        				<table class="table table-bordered">
+        					<tbody>
+        						{{{{raw-helper}}}}
+        						<tr>
+        							<td>滞在者総数</td>
+        							<td>{{buildings.total.sumEnrollment}}人</td>
+        						</tr>
+        						<tr>
+        							<td>受入可人数</td>
+        							<td>{{buildings.total.sumPeople}}人</td>
+        						</tr>
+        						{{{{/raw-helper}}}}
+        					</tbody>
+        				</table>
+        			</div>
+      		  	</div>
+	          </div> {{! /tab-content }}
+</div> {{! /damage }}

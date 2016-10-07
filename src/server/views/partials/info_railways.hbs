@@ -1,0 +1,54 @@
+<div id="train" class="tab-pane fade in active">
+    <div class="table-responsive table_header_train">
+        <table class="table table-bordered table_header">
+            <tbody>
+                <tr>
+                    <td class="info_title colorpurple cursorClick" ng-click="reloadTrainsStatus()"><a href="#">鉄道運行情報 
+                    	<span ng-show="hasTrainUpdate" class="colorred">!</span></a></td>
+                    {{{{raw-helper}}}}
+                    <td ng-if="railways.detail.length" class="info_content">運行中：{{railways.total.good}}路線、停止中：{{railways.total.stop + railways.total.stopSome}}路線、確認中：{{railways.total.checking}}路線</td>
+                    <td ng-if="!railways.detail.length" class="info_content"></td>
+                    {{{{/raw-helper}}}}
+                </tr>
+            </tbody>
+        </table>
+    </div> {{! /table header }}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr ng-if="railways.isSuccessful && railways.detail.length">
+                    <th></th>
+                    <th>路線名</th>
+                    <th>運行状態</th>
+                    <th></th>
+                    <th>路線名</th>
+                    <th>運行状態</th>
+                    <th></th>
+                    <th>路線名</th>
+                    <th>運行状態</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{{{raw-helper}}}}
+                <tr ng-repeat="railway in railways.detail track by $index">
+                    <td><img class="train_icon" ng-src="{{railway.icon1}}"></td>
+                    <td>{{railway.name1}}</td>
+                    <td class="state_color_{{railway.stateColor1}}">{{railway.state1}}</td>
+                    <td><img ng-if="railway.icon2" class="train_icon" ng-src="{{railway.icon2}}"></td>
+                    <td>{{railway.name2}}</td>
+                    <td class="state_color_{{railway.stateColor2}}">{{railway.state2}}</td>
+                    <td><img class="train_icon" ng-src="{{railway.icon3}}"></td>
+                    <td>{{railway.name3}}</td>
+                    <td class="state_color_{{railway.stateColor3}}">{{railway.state3}}</td>
+                </tr>
+                <tr ng-if="railways.isSuccessful" class="no_data">
+                	<td>No data</td>
+                </tr>
+                <tr ng-if="!railways.isSuccessful" class="error_msg">
+                	<td>Can NOT get trains status now. Please try again!</td>
+                </tr>
+                {{{{/raw-helper}}}}
+            </tbody>
+        </table>
+    </div> {{! /table trains }}
+</div> {{! /train }}

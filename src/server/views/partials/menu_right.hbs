@@ -1,0 +1,23 @@
+<div class="wrapper-panel-right">
+	<div class="wrapper_right">
+		<div class="seismic_info_{{mainStatus.demoColor}}">
+			{{#if mainStatus.noData}}
+				<div class="OtherInfoRight-panel-1">情報なし</div>
+				{{#if isWorkerB}}
+				<div class="OtherInfoRight-panel-2"></div>
+				<div class="OtherInfoRight-panel-2"></div>
+				{{else}}
+				<div class="OtherInfoRight-panel-2"></div>
+				{{/if}}
+			{{else}}
+				<div class="OtherInfoRight-panel-1"> {{mainStatus.maxSindo.hours}}時{{mainStatus.maxSindo.minutes}}分、{{mainStatus.maxSindo.place}}：震度{{mainStatus.maxSindo.value}}（最大） </div>
+				{{#if isWorkerB}}
+				<div class="OtherInfoRight-panel-2"> 23区内、震度{{mainStatus.max23Sindo}}（最大） </div>
+				<div class="OtherInfoRight-panel-2"> 新宿区、震度{{mainStatus.shinjukuSindo}} </div>
+				{{else}}
+				<div class="OtherInfoRight-panel-2"> 新宿：震度{{mainStatus.shinjukuSindo}} </div>
+				{{/if}}
+			{{/if}}
+		</div>
+	</div>
+</div>

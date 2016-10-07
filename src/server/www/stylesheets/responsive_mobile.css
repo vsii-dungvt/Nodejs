@@ -1,0 +1,489 @@
+/*--------------Reponsive font size------------------*/
+
+@media only screen and (max-width: 1024px) {
+    .titleLogoLoginMB {
+        font-size: 200%;
+    }
+    .AlertInfoMB {
+        font-size: 125%;
+    }
+    .NotificationInfoMB {
+        font-size: 125%;
+    }
+    .information_other_left_2MB {
+        font-size: 100%;
+    }
+    #homeMap {
+        font-size: 120%;
+    }
+    #menuMobile {
+        font-size: 175%;
+    }
+    #train {
+        font-size: 135%;
+    }
+    #train img {
+        width: 50px;
+        height: 50px;
+    }
+    #train table tr td,
+    #train table>thead>tr>th {
+        padding: 3px;
+    }
+    #train table {
+        border: 1px solid #000;
+    }
+    #train a {
+        padding: 5px 10px;
+        font-size: 110%;
+    }
+    /*----------------*/
+    #building {
+        font-size: 100%;
+    }
+    #building img {
+        width: 30px;
+        height: 30px;
+    }
+    #building table tr td,
+    #building table>thead>tr>th {
+        padding: 3px;
+    }
+    #building table {
+        border: 1px solid #000;
+    }
+    #building a {
+        padding: 5px 10px;
+        font-size: 100%;
+    }
+    /*----------------*/
+    #medical {
+        font-size: 100%;
+    }
+    #medical table tr td,
+    #medical table>thead>tr>th {
+        padding: 3px;
+    }
+    #medical table {
+        border: 1px solid #000;
+    }
+    #medical a {
+        padding: 5px 10px;
+        font-size: 110%;
+    }
+    /*---------------------*/
+    #damage {
+        font-size: 90%;
+    }
+    #damage img {
+        width: 30px;
+        height: 30px;
+    }
+    #damage .table-responsive {
+        direction: ltr;
+    }
+    #damage table tr td,
+    #damage table>thead>tr>th {
+        padding: 3px;
+    }
+    #damage table {
+        border: 1px solid #000;
+    }
+    #damage a {
+        padding: 5px 10px;
+        font-size: 95%;
+    }
+    .table_dammage_people {
+        padding-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .notifications .notifications-container {
+        line-height: 30px;
+    }
+    #damage .nav-pills>li {
+        min-width: 170px;
+    }
+    .titleLogoLoginMB {
+        font-size: 110%;
+    }
+    .AlertInfoMB {
+        font-size: 75%;
+    }
+    .NotificationInfoMB {
+        font-size: 80%;
+    }
+    .information_other_left_2MB {
+        font-size: 80%;
+    }
+    #homeMap {
+        font-size: 65%;
+    }
+    #menuMobile {
+        font-size: 85%;
+    }
+    #train {
+        font-size: 85%;
+    }
+    #train img {
+        width: 30px;
+        height: 30px;
+    }
+    #train table tr td,
+    #train table>thead>tr>th {
+        padding: 3px;
+    }
+    #train table {
+        border: 1px solid #000;
+    }
+    #train a {
+        padding: 5px 10px;
+        font-size: 100%;
+    }
+    /*----------------*/
+    #building {
+        font-size: 100%;
+    }
+    #building img {
+        width: 30px;
+        height: 30px;
+    }
+    #building table tr td,
+    #building table>thead>tr>th {
+        padding: 3px;
+    }
+    #building table {
+        border: 1px solid #000;
+    }
+    #building a {
+        padding: 5px 10px;
+        font-size: 100%;
+    }
+    /*----------------*/
+    #medical {
+        font-size: 100%;
+    }
+    #medical table tr td,
+    #medical table>thead>tr>th {
+        padding: 3px;
+    }
+    #medical table {
+        border: 1px solid #000;
+    }
+    #medical a {
+        padding: 5px 10px;
+        font-size: 110%;
+    }
+    /*---------------------*/
+    #damage {
+        font-size: 90%;
+    }
+    #damage img {
+        width: 30px;
+        height: 30px;
+    }
+    #damage .table-responsive {
+        direction: ltr;
+    }
+    #damage table tr td,
+    #damage table>thead>tr>th {
+        padding: 3px;
+    }
+    #damage table {
+        border: 1px solid #000;
+    }
+    #damage a {
+        padding: 5px 10px;
+        font-size: 95%;
+    }
+    /*----------------*/
+    #history {
+        font-size: 80%;
+    }
+    /*----------------*/
+    .table_dammage_people {
+        padding-top: 0px;
+    }
+    .railway_infomation {
+        font-size: 105%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .notifications .notifications-container {
+        line-height: 30px;
+    }
+    #damage .nav-pills>li {
+        min-width: 150px;
+    }
+    .titleLogoLoginMB {
+        font-size: 100%;
+    }
+    .AlertInfoMB {
+        font-size: 70%;
+    }
+    .NotificationInfoMB {
+        font-size: 75%;
+    }
+    .information_other_left_2MB {
+        font-size: 70%;
+    }
+    #homeMap {
+        font-size: 60%;
+    }
+    #menuMobile {
+        font-size: 75%;
+    }
+    #train {
+        font-size: 85%;
+    }
+    #train img {
+        width: 30px;
+        height: 30px;
+    }
+    #train table tr td,
+    #train table>thead>tr>th {
+        padding: 3px;
+    }
+    #train table {
+        border: 1px solid #000;
+    }
+    #train a {
+        padding: 5px 10px;
+        font-size: 90%;
+    }
+    /*----------------*/
+    #building {
+        font-size: 100%;
+    }
+    #building img {
+        width: 30px;
+        height: 30px;
+    }
+    #building table tr td,
+    #building table>thead>tr>th {
+        padding: 3px;
+    }
+    #building table {
+        border: 1px solid #000;
+    }
+    #building a {
+        padding: 5px 10px;
+        font-size: 100%;
+    }
+    /*----------------*/
+    #medical {
+        font-size: 90%;
+    }
+    #medical table tr td,
+    #medical table>thead>tr>th {
+        padding: 3px;
+    }
+    #medical table {
+        border: 1px solid #000;
+    }
+    #medical a {
+        padding: 5px 10px;
+        font-size: 75%;
+    }
+    /*---------------------*/
+    #damage {
+        font-size: 80%;
+    }
+    #damage img {
+        width: 30px;
+        height: 30px;
+    }
+    #damage .table-responsive {
+        direction: ltr;
+    }
+    #damage table tr td,
+    #damage table>thead>tr>th {
+        padding: 3px;
+    }
+    #damage table {
+        border: 1px solid #000;
+    }
+    #damage a {
+        padding: 5px 10px;
+        font-size: 90%;
+    }
+    /*----------------*/
+    #history {
+        font-size: 70%;
+    }
+    /*----------------*/
+    .table_dammage_people {
+        padding-top: 0px;
+    }
+    .railway_infomation {
+        font-size: 95%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .notifications .notifications-container {
+        line-height: 30px;
+    }
+    #damage .nav-pills>li {
+        min-width: 130px;
+    }
+    .titleLogoLoginMB {
+        font-size: 85%;
+    }
+    .AlertInfoMB {
+        font-size: 60%;
+    }
+    .table-responsive {
+        font-size: 70%;
+    }
+    .NotificationInfoMB {
+        font-size: 70%;
+    }
+    .information_other_left_2MB {
+        font-size: 60%;
+    }
+    #homeMap {
+        font-size: 50%;
+    }
+    #menuMobile {
+        font-size: 64%;
+    }
+    #train {
+        font-size: 100%;
+    }
+    #train ul {
+        font-size: 90%;
+    }
+    #train img {
+        width: 30px;
+        height: 30px;
+    }
+    #train table tr td,
+    #train table>thead>tr>th {
+        padding: 3px;
+    }
+    #train table {
+        border: 1px solid #000;
+    }
+    #train a {
+        padding: 5px 10px;
+        font-size: 85%;
+    }
+    /*----------------*/
+    #medical {
+        font-size: 100%;
+    }
+    #medical img {
+        width: 30px;
+        height: 30px;
+    }
+    #medical table tr td,
+    #medical table>thead>tr>th {
+        padding: 3px;
+    }
+    #medical table {
+        border: 1px solid #000;
+    }
+    #medical a {
+        padding: 5px 10px;
+        font-size: 75%;
+    }
+    /*----------------*/
+    #building {
+        font-size: 100%;
+    }
+    #building img {
+        width: 30px;
+        height: 30px;
+    }
+    #building table tr td,
+    #building table>thead>tr>th {
+        padding: 3px;
+    }
+    #building table {
+        border: 1px solid #000;
+    }
+    #building a {
+        padding: 5px 10px;
+        font-size: 75%;
+    }
+    /*---------------------*/
+    #damage {
+        font-size: 90%;
+    }
+    #damage img {
+        width: 30px;
+        height: 30px;
+    }
+    #damage .table-responsive {
+        direction: ltr;
+    }
+    #damage table tr td,
+    #damage table>thead>tr>th {
+        padding: 3px;
+    }
+    #damage table {
+        border: 1px solid #000;
+    }
+    #damage a {
+        padding: 5px 10px;
+        font-size: 75%;
+    }
+    .table_dammage_people {
+        padding-top: 0px;
+    }
+    /*----------------*/
+    .wrapperMB .wrapper-panel-top {
+        font-size: 85%;
+    }
+    .railway_infomation {
+        font-size: 80%;
+    }
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding: 0px;
+}
+
+.nav-pills>li>a {
+    padding: 1px 5px;
+}
+
+#building table td {
+    white-space: normal;
+}
+
+.railway_listmenu {
+    float: left;
+    width: 30%;
+}
+
+.railway_infomation {
+    float: left;
+    width: 70%;
+}
+
+.panel_history_left {
+    width: 30%;
+    float: left;
+}
+
+.panel_history_right {
+    width: 68%;
+    float: right;
+}
+
+#tableDetailsHistory>tbody>tr>td {
+    padding: 0px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.tableHistory {
+    margin-top: 10px;
+    /*height: 200px;*/
+    overflow: auto;
+}

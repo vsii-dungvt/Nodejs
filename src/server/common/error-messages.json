@@ -1,0 +1,5 @@
+{
+  "ERR_SERVER_GET_PROBLEM": "Server get problem",
+  "ERR_INVALID_BUILDING_ID": "Invalid building id",
+  "ERR_INVALID_MEDICAL_ID": "Invalid medical id"
+}

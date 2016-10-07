@@ -1,0 +1,69 @@
+<div id="panel_admindemosetting_id" class="display_none">
+
+      <div class="margin_alert_admin wrapper_main_status">
+        <table class="table_main_status">
+          <tr>
+          	{{{{raw-helper}}}}
+            <td ng-repeat="phase in phases">
+            	<img class="mainStatusImg" id="mainStatusImg_{{phase.id}}" ng-click="changeDemoPhase($index)" ng-src="{{phase.imageSrc}}" />
+            </td>
+            {{{{/raw-helper}}}}
+          </tr>
+        </table>
+      </div>
+        
+        <div class="panel_group_demosetting">
+          <table class="table_demosetting">
+            <tr>
+              <td><span class="btn btn-default titleDemo">デモ設定</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>発災予定日時</td>
+              <td><input type="text" ng-class="getSendTimeClasses()" uib-datepicker-popup="yyyy.MM.dd, HH:mm" ng-model="sendTime" placeholder="yyyy.mm.dd, hh:mm" /></td>
+            </tr>
+            <tr>
+              <td>最大震度観測点</td>
+              <td>
+                 <select class="dropdown_demo_admin form-control" name="locationSitecode" ng-model="selectedSitecode">
+                 	<option value="" selected disabled>Location Name</option>
+                 	{{{{raw-helper}}}}
+                 	<option ng-repeat="sidecode in tokyoSitecodes.tokyoSitecodeNames" value="{{sidecode.sitecode}}">{{sidecode.name}}</option>
+                 	{{{{/raw-helper}}}}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>最大震度</td>
+              <td>
+                <select class="dropdown_demo_admin form-control" name="SindoDrop1" 
+                		ng-model="selectedMaxSindo" ng-options="sindo disable when selectedShinjukuSindo && sindo<selectedShinjukuSindo for sindo in Sindos">
+                    <option value="">Number</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>新宿の震度</td>
+              <td>
+                <select class="dropdown_demo_admin form-control" name="SindoDrop2" 
+                		ng-model="selectedShinjukuSindo" ng-options="sindo disable when selectedMaxSindo && sindo>selectedMaxSindo for sindo in Sindos">
+                    <option value="">Number</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>長周期地震動階級</td>
+              <td>
+                <select class="dropdown_demo_admin form-control" name="SindoDrop3" ng-model="selectedLPGM">
+                    <option value="">Number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+</div>
+    

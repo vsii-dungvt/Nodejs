@@ -1,0 +1,132 @@
+<div id="building" class="tab-pane fade">
+    <ul class="nav nav-pills">
+        <li class="colorpurplelight active">
+        	<a data-toggle="pill" ng-click="filterArea('','building')" href="#">一時滞在施設情報 
+        		<span ng-show="hasBuildingUpdate" class="colorred">!</span></a></li>
+        {{#if isPhone}}
+        <li class="dropdown">
+            <a class="dropdown-toggle state_color_blue" data-toggle="dropdown" href="#">エリア別表示<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                 <li class="colorpurplelight">
+		        	<a data-toggle="pill" ng-click="filterArea('新宿西口','building')" href="#">新宿西口 
+		        		<span ng-show="hasWestBuildingUpdate" class="colorred">!</span></a></li>
+		        <li class="colorpurplelight">
+		        	<a data-toggle="pill" ng-click="filterArea('新宿東口','building')" href="#">新宿東口 
+		        		<span ng-show="hasEastBuildingUpdate" class="colorred">!</span></a></li>
+		        <li class="colorpurplelight">
+		        	<a data-toggle="pill" ng-click="filterArea('新宿南口','building')" href="#">新宿南口 
+		        		<span ng-show="hasSouthBuildingUpdate" class="colorred">!</span></a></li>
+            </ul>
+		</li>
+        {{else}}
+		<li class="colorpurplelight">
+        	<a data-toggle="pill" ng-click="filterArea('新宿西口','building')" href="#">新宿西口 
+        		<span ng-show="hasWestBuildingUpdate" class="colorred">!</span></a></li>
+        <li class="colorpurplelight">
+        	<a data-toggle="pill" ng-click="filterArea('新宿東口','building')" href="#">新宿東口 
+        		<span ng-show="hasEastBuildingUpdate" class="colorred">!</span></a></li>
+        <li class="colorpurplelight">
+        	<a data-toggle="pill" ng-click="filterArea('新宿南口','building')" href="#">新宿南口 
+        		<span ng-show="hasSouthBuildingUpdate" class="colorred">!</span></a></li>
+        {{/if}}
+    </ul>
+    {{! /table header }}
+    <div class="table-responsive" ng-class="{ 'table_cell_editable': isUserA || isUserB } ">
+        <table class="table table-bordered header-fixed">
+            <thead>
+                <tr ng-if="buildings.isSuccessful && filteredBuildings.length">
+                    <th>map</th>
+                    <th>種別</th> {{! building type: private/public}}
+                    <th>施設名称</th> {{! building name}}
+                    <th ng-show="isUserB || isUserA">受入</th> {{! Acceptance(value, desc, status)}}
+                    <th ng-show="isUserB || isUserA">判定</th> {{! Acceptance(value, desc, status)}}
+                    <th ng-show="!isUserB  && !isUserA">判定結果</th> {{! Acceptance(value, desc, status)}}
+                    <th ng-show="isUserB || isUserA">火災</th>
+                    <th>電気</th> {{! Electricity(value, desc, status)}}
+                    <th ng-show="isUserB || isUserA">ガス</th>
+                    <th>水道</th> {{! Water_supply}}
+                    <th>通信</th> {{! Communication}}
+                    <th>トイレ</th> {{! Toilet}}
+                    <th ng-show="isUserB || isUserA">在館者数</th> {{! enrollmen}}
+                </tr>
+            </thead>
+            <tbody>
+                {{{{raw-helper}}}}
+                <tr ng-repeat="building in filteredBuildings = (buildings.detail | filter:areaFilters) track by building.sBuildingId">
+                    <td>
+                        <span ng-show="disableEdit(building.sBuildingId)">{{building.sBuildingId}}</span>
+                        <button ng-click="saveBuildingInfo(building.sBuildingId)" ng-show="!disableEdit(building.sBuildingId)">{{building.sBuildingId}}</button>
+                    </td>
+                    <td>{{building.buildingTypeText}}</td>
+                    <td>{{building.buildingName}}</td>
+                    <td ng-show="isUserB || isUserA">
+                        <span ng-show="disableEdit(building.sBuildingId)">{{building.peoples}}</span>
+                        <select ng-model="building.peoples" ng-change="onBuildingPeopleInfoChange(building.sBuildingId, building.peoples)" ng-show="!disableEdit(building.sBuildingId)">
+                            <option ng-repeat="people in selectOptionPeople track by people.value" >{{people.desc}}</option>
+                        </select>
+                    </td>
+                    <td class="state_color_{{building.acceptanceObj.status}}">
+                        <span ng-show="disableEdit(building.sBuildingId)">{{building.acceptanceObj.desc}}</span>
+                        <select ng-show="!disableEdit(building.sBuildingId)" ng-model="building.acceptanceObj" 
+                        	ng-options="status.desc for status in acceptanceOptions track by status.value">
+						</select>
+                    </td>
+                    <td ng-show="isUserB || isUserA" class="state_color_{{building.fireObj.status}}">
+                        <span ng-show="disableEdit(building.sBuildingId)">{{building.fireObj.desc}}</span>
+                        <select ng-show="!disableEdit(building.sBuildingId)" ng-model="building.fireObj" 
+                        	ng-options="status.desc for status in fireOptions track by status.value">
+						</select>
+                    </td>
+                    <td>
+                        <img ng-if="building.electricityObj.status" class="train_icon" ng-src="{{building.electricityObj.status}}">
+                        <span ng-if="!building.electricityObj.status">{{building.electricityObj.desc}}</span>
+                        <select ng-show="!disableEdit(building.sBuildingId)" ng-model="building.electricityObj" 
+                        	ng-options="status.desc for status in electricOptions track by status.value">
+						</select>
+                    </td>
+                    <td ng-show="isUserB || isUserA"> 
+                    	<img ng-if="building.gasObj.status" class="train_icon" ng-src="{{building.gasObj.status}}">
+                    	<span ng-if="!building.gasObj.status">{{building.gasObj.desc}}</span>
+                    	<select ng-show="!disableEdit(building.sBuildingId)" ng-model="building.gasObj" 
+                        	ng-options="status.desc for status in gasOptions track by status.value">
+						</select>
+                    </td>
+                    <td>
+                        <img ng-if="building.waterObj.status" class="train_icon" ng-src="{{building.waterObj.status}}">
+                        <span ng-if="!building.waterObj.status">{{building.waterObj.desc}}</span>
+                        <select ng-show="!disableEdit(building.sBuildingId)" ng-model="building.waterObj" 
+                        	ng-options="status.desc for status in waterOptions track by status.value">
+						</select>
+                    </td>
+                    <td>
+                        <img ng-if="building.communicationObj.status" class="train_icon" 
+                        	ng-src="{{building.communicationObj.status}}">
+                        <span ng-if="!building.communicationObj.status">{{building.communicationObj.desc}}</span>
+                        <select ng-show="!disableEdit(building.sBuildingId)" ng-model="building.communicationObj" 
+                        	ng-options="status.desc for status in wifiOptions track by status.value">
+						</select>
+                    </td>
+                    <td>
+                        <img ng-if="building.toiletObj.status" class="train_icon" ng-src="{{building.toiletObj.status}}">
+                        <span ng-if="!building.toiletObj.status">{{building.toiletObj.desc}}</span>
+                        <select ng-show="!disableEdit(building.sBuildingId)" ng-model="building.toiletObj" 
+                        	ng-options="status.desc for status in toiletOptions track by status.value">
+						</select>
+                    </td>
+                    <td ng-show="isUserB || isUserA">
+                        <span ng-show="disableEdit(building.sBuildingId)">{{building.enrollmentNumber}}</span>
+                        <select ng-model="building.enrollmentNumber" ng-change="onBuildingEnrollInfoChange(building.sBuildingId, building.enrollmentNumber)" ng-show="!disableEdit(building.sBuildingId)">
+                            <option ng-repeat="enroll in selectOptionEnroll track by enroll.value" >{{enroll.desc}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="no_data">
+                	<td>No data</td>
+                </tr>
+                {{{{/raw-helper}}}}
+            </tbody>
+        </table>
+    </div>
+    {{! /table building }}
+</div>
+{{! /building }}

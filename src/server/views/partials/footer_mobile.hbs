@@ -1,0 +1,17 @@
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div ng-if="curTab !== '過去地震情報'" ng-click="showHistory()" class="col-xs-4 col-md-4 text-left"><a href="#" class="btn_bottom_mobile btn-block btn-md btn-info">過去地震情報</a></div>
+        <div ng-if="curTab === '過去地震情報'" class="col-sm-4 text-left"></div>
+        <div class="col-xs-4 col-md-4 text-center"><a href="#" class="btn_bottom_mobile btn-block btn-md btn-default">設定</a></div>
+        <div ng-if="curTab !== '過去地震情報'" ng-click="updateAll()" class="col-xs-4 col-md-4 text-right"><a href="#" class="btn_bottom_mobile btn-block btn-md btn-primary">更新</a></div>
+        <div ng-if="curTab === '過去地震情報'" ng-click="hideHistory()" class="col-xs-4 col-md-4 text-right"><a href="#" class="btn_bottom_mobile btn-block btn-md btn-primary">戻る</a></div>
+      </div>
+    </div>
+    <div class="footerLogin_mobile"> 
+        <a href="#"><img class="imgKokakuin" src="/sip/public/images/Kogakuin_logo.png" /></a> 
+          <a href="https://www.sip-bousai.jp/" target="_blank">
+            <img class="imgSIP" src="/sip/public/images/SIP_logo2.png">
+        </a> 
+    </div>
+  </footer>

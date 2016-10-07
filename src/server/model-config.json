@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "Bousai": {
+    "dataSource": "SIP",
+    "public": true
+  },
+  "Pattern": {
+    "dataSource": "SIP",
+    "public": true
+  },
+  "SitecodeName": {
+    "dataSource": "SIP",
+    "public": true
+  },
+  "StatusBuilding": {
+    "dataSource": "SIP",
+    "public": true
+  },
+  "StatusMedical": {
+    "dataSource": "SIP",
+    "public": true
+  },
+  "StatusTrain": {
+    "dataSource": "SIP",
+    "public": true
+  },
+  "NewBousai00": {
+    "dataSource": "SIP",
+    "public": true
+  },
+  "StatusDoffice": {
+    "dataSource": "SIP",
+    "public": true
+  }
+}

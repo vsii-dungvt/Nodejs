@@ -1,0 +1,22 @@
+# NodeJS prerequiresite python 2.7, gcc 4.8 for making or building from tarball source code
+
+## Developer Install Tools
+node/npm use the latest version
+
+## install dependencies:
+cd src && npm install
+
+## run the app: in debug mode
+npm start
+
+## OR
+node .
+
+## express example:
+# https://github.com/expressjs/express/tree/master/examples
+
+# DB2 connector 
+# https://github.com/strongloop/loopback-datasource-juggler
+
+# Others
+# http://www.w3schools.com/bootstrap/bootstrap_get_started.asp

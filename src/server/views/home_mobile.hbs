@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="/sip/public/libs/ng-notification/ngNotificationsBar.min.css">
+<link rel="stylesheet" href="/sip/public/stylesheets/responsive_mobile.css">
+<script src="/sip/public/libs/ng-notification/ngNotificationsBar.min.js"></script>
+<script src="/sip/public/javascripts/admin.js"></script>
+<script src="/sip/public/javascripts/home/home.js"></script>
+<script src="/sip/public/javascripts/home/controller/HomeCtrl.js"></script>
+<script src="/sip/public/javascripts/home/services/HomeService.js"></script>
+<script>
+	var data = {{{toJSON info}}};  
+    var iPhone = {{{toJSON isPhone}}};
+	var statistic = {{{toJSON statistic}}};
+  	var loginUser = {{{toJSON loginUser}}};
+	var mainStatus = {{{toJSON mainStatus}}};
+	var actionsGuide = {{{toJSON actionsGuide}}};
+	angular.module('sip.home').constant('CurData', data);
+	angular.module('sip.home').constant('Statistic', statistic);
+	angular.module('sip.home').constant('MainStatus', mainStatus);
+	angular.module('sip.home').constant('ActionsGuide', actionsGuide);
+  	angular.module('sip.home').constant('LoginUser', loginUser);
+</script>
+<div id="home" ng-controller="HomeCtrl">
+    <notifications-bar class="notifications"></notifications-bar>
+<div class="wrapperMB">
+    <div class="wrapper-panel-top">
+        {{{{raw-helper}}}}
+    	<p class="textright_paneltop">{{curLocation}}</p>
+        {{{{/raw-helper}}}}
+    	{{#if isAuthenticated}}
+        <a href="/sip/authen/logout" class="link_logout_paneltop">logout</a>
+        {{/if}}
+    </div>
+  <div class="wrapperMB-panel-left"> &nbsp; </div>
+  <div class="wrapperMB-panel-center">
+    <div class="wrapper_left">
+      <div class="panel_groupButtonTop_mobile">
+          <div ng-click="selectMap()" class="text-center"><a class="btn_bottom_mobile btn-block btn-md btn-map-mobile">新宿マップ</a></div>
+          <div class="text-center"><a href="/sip/public/files/actions/file_shinjuku_rule.pdf" target="_blank" class="btn_bottom_mobile btn-block btn-md btn-map-mobile">行動指針</a></div>
+          <div class="text-center"><a href="https://www.sip-bousai.jp/" target="_blank" class="btn_bottom_mobile btn-block btn-md btn-map-mobile">推定情報</a></div>
+      </div> 
+      <div class="panel_logo_mobile">
+        <img class="logoLoginMB" src="/sip/public/images/SIP_logo1.png" />
+        <p class="titleLogoLoginMB">エリア災害対応支援アプリケーション</br>（ {{loginUser}} ）</p>
+      </div>
+      <div class="group_notification_alertMB">
+        {{> menu_top_mobile}}
+      </div>
+      <div class="NotificationInfoMB">
+        <div class="seismic_info_{{mainStatus.demoColor}}">
+        <table class="table_notification_MB">
+        	<tr>
+            {{#if mainStatus.noData}}
+                    <td style="width:33%;">情報なし</td>
+                    {{#if isWorkerB}}
+                        <td style="width:33%;"></td>
+                        <td style="width:33%;"></td>
+                    {{else}}
+                        <td style="width:33%;"></td>
+                    {{/if}}
+			          {{else}}
+                    <td style="width:33%;">{{mainStatus.maxSindo.hours}}時{{mainStatus.maxSindo.minutes}}分、<br/>江東区:{{mainStatus.maxSindo.place}}：震度{{mainStatus.maxSindo.value}}（最大）</td>
+                    {{#if isWorkerB}}
+                        <td style="width:33%;">23区内、震度{{mainStatus.max23Sindo}}（最大）</td>
+                        <td style="width:33%;">新宿：震度{{mainStatus.shinjukuSindo}} </td>
+                    {{else}}
+                        <td style="width:33%;">新宿：震度{{mainStatus.shinjukuSindo}} </td>
+                    {{/if}}
+                {{/if}}
+            </tr>
+        </table>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper-panel-top">
+      {{> action_guide_mobile}}
+    </div>
+    <div class="wrapper-panel-top tab-content" id="mainContent">
+      {{> info_railways_mobile}}
+      {{> info_building}}
+      {{> info_medical}}
+      {{> info_map}}
+      {{> info_damage}}
+      {{> info_history_mobile}}
+    </div>
+  </div>
+  <div class="wrapperMB-panel-right"> &nbsp; </div>
+  {{> footer_mobile}}
+</div>
+
+</div>

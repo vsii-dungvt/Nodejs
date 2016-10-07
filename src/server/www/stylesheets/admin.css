@@ -1,0 +1,247 @@
+.form_setting_admin {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #555;
+    display: block;
+    height: 30px;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    text-align: center;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 150px;
+}
+.form_setting_admin:focus {
+    border-color: #66afe9;
+    outline: 0;
+    /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); */
+}
+
+.table_demosetting {
+    margin: 0 auto;
+    width: 50%;
+}
+.table_demosetting .ng-invalid {
+    border: 1px solid red !important;
+}
+.dateMinInvalid {
+	border: 1px solid red !important;
+}
+.table_demosetting td {
+    width: 50%;
+}
+
+.table_demosetting tr {}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    background-color: #286090;
+    border-color: #122b40;
+}
+
+.btn-primary:hover {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.btn-default {
+    background-color: #e6e6e6;
+    border-color: #ccc;
+    color: #333;
+}
+
+.btn-default.focus,
+.btn-default:focus {
+    background-color: #ccc;
+    border-color: #8c8c8c;
+    color: #333;
+}
+
+.btn-default:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    color: #333;
+}
+
+.GroupButtonFooter {
+    bottom: 40px;
+    min-width: 1024px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.col-groupButton {
+    float: left;
+    width: 33%;
+}
+
+.panel_canveslinkmap {
+    margin: 0 auto;
+    position: relative;
+    width: 80%;
+}
+
+.canvasLinkMap {
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 10px;
+    position: absolute;
+    top: 5px;
+}
+
+.canvasLinkMap a {
+    color: #000;
+    text-decoration: none;
+}
+
+.canvasLinkMap a:hover {
+    color: #2e6da4;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.information_other_left {
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    min-width: 260px;
+    text-align: center;
+    width: 100%;
+}
+
+.color_red_info {
+    background-color: #bc3835;
+}
+
+.color_orange_info {
+    background-color: #f28627;
+}
+
+.color_yellow_info {
+    background-color: #e7e700;
+}
+
+.color_blue_menuadmin {
+    background-color: #2e6da4 !important;
+}
+
+.content_admin {
+    float: left;
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.content_admin_panel {
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+
+.content_admin_itemtitle {
+    background-color: #c0d6ff;
+    border: 1px solid #000;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    width: 75%;
+}
+
+.content_admin_item {
+    border: 1px solid #000;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    margin: 15px auto 0;
+    width: 95%;
+}
+
+.content_admin_item:hover {
+    background-color: #d4d4d4;
+}
+
+.panel_group_demosetting {
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+}
+
+.table_collapse_admin {
+    border: 1px solid #000;
+    margin: 10px auto 0;
+    text-align: center;
+    width: 95%;
+}
+
+.table_collapse_admin tr {
+    height: 30px;
+}
+
+.table_collapse_admin td {
+    border: 1px solid #000;
+    width: 50%;
+}
+
+.content_sub_table {
+    float: left;
+    margin-top: 20px;
+    width: 90%;
+    padding-left: 4%;
+}
+
+.content_admin_itemtitle_sub {
+    border: 1px solid #000;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    width: 250px;
+    background-color: #ED8DDB;
+}
+
+.table_subitem {
+    border: 1px solid #000;
+    float: left;
+}
+
+.table_subitem tr {
+    border: 1px solid #000;
+}
+
+.table_subitem tr td {
+    border: 1px solid #000;
+    padding: 8px;
+}
+
+.margin_alert_admin {
+    margin: -50px 0px 50px 0px;
+}
+
+.display_none {
+    display: none;
+    margin: 0 auto;
+}
+
+.display_block {
+    display: block;
+    margin: 0 auto;
+}
+
+.dropdown_demo_admin {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 12px;
+    width: 150px;
+}
+
+#btnSubmitDemo {
+	width: 138px;
+	margin-bottom: 15px;
+}
+
+.titleDemo:hover {
+	cursor: default;
+}

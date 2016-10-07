@@ -1,0 +1,102 @@
+/*--------------Reponsive table content by height------------------*/
+
+@media only screen and (max-height: 1080px) {
+    #building .table-responsive {
+        max-height: 550px;
+    }
+    #actionsGuide .table-responsive {
+        max-height: 590px;
+    }
+    #homeMap .table-responsive {
+        max-height: 550px;
+    }
+    #homeMap .table-responsive img {
+        max-height: 530px;
+    }
+}
+
+@media only screen and (max-height: 1024px) {
+    #building .table-responsive {
+        max-height: 500px;
+    }
+    #actionsGuide .table-responsive {
+        max-height: 540px;
+    }
+    #homeMap .table-responsive {
+        max-height: 500px;
+    }
+    #homeMap .table-responsive img {
+        max-height: 490px;
+    }
+}
+
+@media only screen and (max-height: 900px) {
+    #building .table-responsive {
+        max-height: 400px;
+    }
+    #actionsGuide .table-responsive {
+        max-height: 440px;
+    }
+    #homeMap .table-responsive {
+        max-height: 400px;
+    }
+    #homeMap .table-responsive img {
+        max-height: 390px;
+    }
+}
+
+@media only screen and (max-height: 768px) {
+    #building .table-responsive {
+        max-height: 280px;
+    }
+    #actionsGuide .table-responsive {
+        max-height: 324px;
+    }
+    #homeMap .table-responsive {
+        max-height: 280px;
+    }
+    #homeMap .table-responsive img {
+        max-height: 270px;
+    }
+}
+
+
+/* @media screen and (max-height: 720px) {
+	#train .table-responsive {
+        max-height: 248px;
+    }
+    #damage .table-responsive {
+        max-height: 245px;
+    }
+    #building .table-responsive {
+        max-height: 245px;
+    }
+    #actionsGuide .table-responsive {
+        max-height: 285px;
+    }
+    #homeMap .table-responsive {
+        max-height: 245px;
+    }
+    #homeMap .table-responsive img {
+        max-height: 240px;
+    }
+} 
+
+.table-fixed thead {
+    width: 100%;
+}
+
+.table-fixed tbody {
+    height: 270px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.table-fixed tbody {
+    display: block;
+}
+
+.table-fixed thead>tr>th {
+    float: left;
+    border-bottom-width: 0;
+}*/

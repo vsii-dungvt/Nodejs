@@ -1,0 +1,24 @@
+<div id="actionsGuide">
+	          <div class="table-responsive">
+              <table class="table-bordered action_guide" style="border:1px solid #000;width:100%;">
+              {{{{raw-helper}}}}
+	              <caption class="table_action_header state_color_{{phaseColor}}">行動指針</caption>
+	              <tbody ng-show="phaseColor == 'grey'">
+	                <tr>
+	                  <td style="width:20px;">0</td>
+	                  <td class="action_guide"></td>
+	                  <td></td>
+	                </tr>
+	              </tbody>
+	              <tbody ng-show="phaseColor != 'grey'">
+	                <tr ng-repeat="action in actionsGuide">
+	                  <td style="width:20px;text-align:center;">{{$index+1}}</td>
+	                  <td class="action_guide"><span style="color: red">{{action.mes1}}</span><br>→{{action.mes2}}</td>
+	                  <td ng-show="!action.linkUrl">{{action.linkDisplay}}</td>
+	                  <td ng-show="action.linkUrl"><a href="{{action.linkUrl}}">{{action.linkDisplay}}</a></td>
+	                </tr>
+	              </tbody>
+	              {{{{/raw-helper}}}}             
+              </table>
+	          </div>
+	        </div>

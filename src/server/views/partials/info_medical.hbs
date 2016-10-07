@@ -1,0 +1,68 @@
+<div id="medical" class="tab-pane fade">
+		      <ul class="nav nav-pills">
+		        <li class="colorpurplelight active">
+		        	<a data-toggle="pill" ng-click="filterArea('','medical')" href="#">医療機関情報 
+		        		<span ng-show="hasMedicalUpdate" class="colorred">!</span></a></li>
+						{{#if isPhone}}
+						<li class="dropdown">
+									<a class="dropdown-toggle state_color_blue" data-toggle="dropdown" href="#">エリア別表示<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+											<li class="colorpurplelight">
+												<a data-toggle="pill" ng-click="filterArea('新宿西口','medical')" href="#">新宿西口 
+													<span ng-show="hasWestMedicalUpdate" class="colorred">!</span></a></li>
+											<li class="colorpurplelight">
+												<a data-toggle="pill" ng-click="filterArea('新宿東口','medical')" href="#">新宿東口 
+													<span ng-show="hasEastMedicalUpdate" class="colorred">!</span></a></li>
+											<li class="colorpurplelight">
+												<a data-toggle="pill" ng-click="filterArea('新宿南口','medical')" href="#">新宿南口 
+													<span ng-show="hasSouthMedicalUpdate" class="colorred">!</span></a></li>
+									</ul>
+						</li>
+            			{{else}}
+							<li class="colorpurplelight">
+								<a data-toggle="pill" ng-click="filterArea('新宿西口','medical')" href="#">新宿西口 
+									<span ng-show="hasWestMedicalUpdate" class="colorred">!</span></a></li>
+							<li class="colorpurplelight">
+								<a data-toggle="pill" ng-click="filterArea('新宿東口','medical')" href="#">新宿東口 
+									<span ng-show="hasEastMedicalUpdate" class="colorred">!</span></a></li>
+							<li class="colorpurplelight">
+								<a data-toggle="pill" ng-click="filterArea('新宿南口','medical')" href="#">新宿南口 
+									<span ng-show="hasSouthMedicalUpdate" class="colorred">!</span></a></li>
+            			{{/if}}
+      		  </ul> {{! /table header }}
+	          <div class="table-responsive">
+	            <table class="table table-bordered header-fixed">
+	              <thead>
+	                <tr ng-if="medicals.isSuccessful && filterdMedicals.length">
+	                  <th>map</th>
+	                  <th>エリア</th>
+	                  <th>施設種類</th>
+	                  <th>施設名称</th>
+	                  <th>受入状態</th>
+	                </tr>
+	              </thead>
+	              <tbody>
+	              {{{{raw-helper}}}}
+	                <tr ng-repeat="medical in filterdMedicals = (medicals.detail | filter:areaMedicalFilters) track by medical.sMedicalId">
+                      <td>
+                          <span ng-show="!isUserB">{{medical.sMedicalId}}</span>
+                          <button ng-click="saveMedicalInfo(medical.sMedicalId)" ng-show="isUserB">{{medical.sMedicalId}}</button>
+                      </td>
+	                  <td>{{medical.Medical_area.desc}}</td>
+	                  <td>{{medical.Medical_type.desc}}</td>
+	                  <td>{{medical.medicalName}}</td>
+	                  <td class="state_color_{{medical.Medical_acceptance.status}}">
+                        <span ng-show="!isUserB">{{medical.Medical_acceptance.desc}}</span>
+                        <select ng-model="medical.Medical_acceptance.desc" ng-show="isUserB" ng-change="onMedicalInfoChange(medical.sMedicalId)">
+                            <option ng-repeat="selects in selectOptionsMedical track by $index" >{{selects}}</option>
+                        </select>
+                      </td>
+	                </tr>
+	                <tr class="no_data">
+                		<td>No data</td>
+                	</tr>
+	              {{{{/raw-helper}}}}
+	              </tbody>
+	            </table>
+	          </div> {{! /table medical }}
+</div> {{! /medical }}

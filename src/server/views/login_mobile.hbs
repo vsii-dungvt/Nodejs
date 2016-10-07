@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="/sip/public/libs/ng-notification/ngNotificationsBar.min.css">
+<script src="/sip/public/libs/ng-notification/ngNotificationsBar.min.js"></script>
+<script src="/sip/public/javascripts/login/login.js"></script>
+<script src="/sip/public/javascripts/login/services/LoginService.js"></script>
+<script src="/sip/public/javascripts/login/controller/LoginCtrl.js"></script>
+<div id="login" ng-controller="LoginCtrl">
+    <notifications-bar class="notifications"></notifications-bar>
+    <div class="wrapperMB">
+        <div class="wrapper-panel-top">
+            <p class="textright_paneltop">Top</p>
+          {{#if isAuthenticated}}
+              <a href="/sip/authen/logout" class="link_logout_paneltop">logout</a>
+          {{/if}}
+        </div>
+
+        <div class="wrapperMB-panel-left"> &nbsp; </div>
+        <div class="wrapperMB-panel-center">
+            <div class="wrapper_left">
+                <div class="wrapper_left">
+                  {{> header}}
+
+                    <div class="AlertInfoMB seismic_info_{{mainStatus.demoColor}}">
+                      {{#if mainStatus.noData}}
+                          <div class="AlertInfoMB-Noti-1">
+                              <p>情報なし</p>
+                          </div>
+                          <div class="AlertInfoMB-Noti-2">
+                              <p>&nbsp</p>
+                          </div>
+                          <div class="AlertInfoMB-Noti-3">
+                              <p>身の安全を確保</p>
+                          </div>
+                      {{else}}
+                          <div class="AlertInfoMB-Noti-1">
+                              <p>{{mainStatus.maxSindo.hours}}時{{mainStatus.maxSindo.minutes}}
+                                  分、{{mainStatus.maxSindo.place}}：震度{{mainStatus.maxSindo.value}}（最大）</p>
+                          </div>
+                          <div class="AlertInfoMB-Noti-2">
+                              <p>新宿：震度{{mainStatus.shinjukuSindo}} </p>
+                          </div>
+                          <div class="AlertInfoMB-Noti-3">
+                              <p>身の安全を確保</p>
+                          </div>
+                      {{/if}}
+                    </div>
+                    <div ng-app="" class="panelLoginMB">
+                        <form>
+                            <table class="tableLoginMB">
+                                <tr>
+                                    <td><input class="form-controll-textLoginMB" oninvalid="InvalidMsg(this);"
+                                               oninput="InvalidMsg(this);" ng-model="username" required
+                                               type="text" placeholder="Login ID"></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-controll-textLoginMB" type="password" ng-model="password"
+                                               placeholder="Password" required></td>
+                                </tr>
+                                {{#unless isAdmin}}
+                                <tr>
+                                    <td><a href="#" class="link-registerLoginMB" href="#">新規登録</a></td>
+                                </tr>
+                                {{/unless}}
+                            </table>
+                            <div class="panelButtonloginMB">
+                                <button class="btn btn-primary" ng-click="doLogin()">{{titleButtonLogin}}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapperMB-panel-right"> &nbsp; </div>
+            <div class="footerLogin_mobile">
+                <a href="#"><img class="imgKokakuin" src="/sip/public/images/Kogakuin_logo.png"/></a>
+                <a href="https://www.sip-bousai.jp/" target="_blank">
+                    <img class="imgSIP" src="/sip/public/images/SIP_logo2.png">
+                </a>
+            </div>
+        </div>
+    </div>

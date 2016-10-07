@@ -1,0 +1,15 @@
+<div id="homeMap" class="tab-pane fade">
+    <ul class="nav nav-pills">
+        <li id="fist_tab_mapscreen" class="colorpurplelight in active">
+        	<a data-toggle="pill" ng-click="filterMap('global')">新宿エリア（全体）</a>
+        </li>
+        <li class="colorpurplelight"><a data-toggle="pill" ng-click="filterMap('shelter')">新宿エリア（避難所) </a></li>
+        <li class="colorpurplelight"><a data-toggle="pill" ng-click="filterMap('eki')">新宿エリア（鉄道駅）</a></li>
+        <li class="colorpurplelight"><a data-toggle="pill" ng-click="filterMap('facility')">新宿エリア（施設) </a></li>
+    </ul> {{! /table header }}
+    {{{{raw-helper}}}}
+    <div class="table-responsive" ng-repeat="map in maps | filter:areaMapFilters track by $index">
+		<img class="img-responsive img-thumbnail" ng-src="{{map.map_link}}"/>
+    </div>
+    {{{{/raw-helper}}}}
+</div>

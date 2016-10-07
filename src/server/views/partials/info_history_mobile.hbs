@@ -1,0 +1,112 @@
+<div id="history" class="tab-pane fade history">
+	<div class="panel_history_left">
+		<table id="tableDetailsHistory" class="table table-bordered">
+				<caption class="table_action_header history_color_bluegreen">過去地震情報</caption>
+				<tbody>
+					{{{{raw-helper}}}}
+					<tr>
+	                  <td style="width: 50%;">日時</td>
+	                  <td>{{historyDetail.sendTime | date: 'yyyy.MM.dd HH:mm'}}</td>
+	                </tr>
+	                <tr>
+	                  <td>最大震度 </br>({{historyDetail.MAX.siteName}})</td>
+	                  <td class="state_color_red">{{historyDetail.MAX.formattedSindo}}</td>
+	                </tr>
+	                <tr>
+	                  <td>震度</br>(
+	                  	<select ng-model="selectedSite" ng-options="site.Name for site in historyDetail.SITES" >
+											</select>)
+	                  </td>
+	                  <td class="state_color_red">{{selectedSite.formattedSindo}}</td>
+	                </tr>
+	                <tr>
+	                  <td>長周期地震動階級</td>
+	                  <td>{{historyDetail.MAX.lpgm}}</td>
+	                </tr>
+	                {{{{/raw-helper}}}}
+	             </tbody>
+			</table>
+	</div>
+	<div class="panel_history_right">
+			<div class="group_notification_alertMB">
+				<div style="width: 100%;float: left;margin-bottom: 10px;" class="">
+					<select style="width:80px;height:25px;" class="btn-primary" 
+													ng-model="selectedDate" 
+													ng-options="hDate.yyyy + '年' + hDate.mm + '月' for hDate in historyFilter.historyDates" 
+													ng-change="searchHistoryListByDate()" >
+													<option value="">年代別検索</option>
+					</select>
+
+					<select style="width:80px;height:25px;" class="btn-primary" 
+													ng-model="selectedState" 
+													ng-options="stateCode.state for stateCode in historyFilter.stateCodes"
+													ng-change="searchHistoryByState()" >
+													<option value="">地域別検索</option>
+					</select>
+				</div>
+				<div>
+					<select style="width:80px;height:25px;" class="btn-primary" 
+													ng-model="selectedSindo" 
+													ng-options="sindo for sindo in Sindos" 
+													ng-change="searchHistoryBySindo()">
+													<option value="">震度別検索</option>
+					</select>
+
+					<select style="width:80px;height:25px;" class="btn-primary" 
+													ng-model="selectedTokyoSite" 
+													ng-options="tokyoSite.name for tokyoSite in historyFilter.tokyoSitecodes.tokyoSitecodeNames" 
+													ng-change="searchHistoryByTokyoSitename()" >
+													<option value="">観測点別検索</option>
+					</select>
+				</div>
+			</div>
+			<div class="group_notification_alertMB">
+					<div class="tableHistory">
+						<table class="table table-bordered">
+							<thead>
+								<th>年代</th>
+								<th>震度</th>
+								<th>地域</th>
+								<th>観測点</th>
+							</thead>
+							<tbody>
+												{{{{raw-helper}}}}
+												<tr ng-if="historyCheckDate" ng-repeat="hDay in historyDays" 
+														ng-click="getHistoryByDay($index, hDay)" 
+														ng-class="{history_color_bluegreen : $index == selectedDateRow}" >
+														<td>{{hDay.formattedSendTime}}</td>
+														<td>{{hDay.formattedMaxSindo}}</td>
+														<td>{{hDay.State}}</td>
+														<td>{{hDay.Name}}</td>
+												</tr>
+												<tr ng-if="historyCheckState" ng-repeat="hDay in historyDaysBySiteCode | orderBy:'SendTime': true" 
+														ng-click="getHistoryByDay($index, hDay, 1)" 
+														ng-class="{history_color_bluegreen : $index == selectedStateRow}" >
+														<td>{{hDay.formattedSendTime}}</td>
+														<td>{{hDay.formattedMaxSindo}}</td>
+														<td>{{hDay.State}}</td>
+														<td>{{hDay.Name}}</td>
+	                							</tr>
+												<tr ng-if="historyCheckSindo" ng-repeat="hDay in historyDaysBySindo | orderBy:'SendTime': true" 
+														ng-click="getHistoryBySindoDay($index, hDay)"
+														ng-class="{history_color_bluegreen : $index == selectedSindoRow}" >
+														<td>{{hDay.formattedSendTime}}</td>
+														<td>{{selectedSindo}}</td>
+														<td>{{hDay.State}}</td>
+														<td>{{hDay.Name}}</td>
+												</tr>
+												<tr ng-if="historyCheckSite" ng-repeat="hDay in selectedTokyoSite.hDays | orderBy:'SendTime': true" 
+														ng-click="getHistoryByTokyoSitecode($index, hDay)"
+														ng-class="{history_color_bluegreen : $index == selectedTokyoRow}" >
+														<td>{{hDay.formattedSendTime}}</td>
+														<td>{{hDay.formattedMaxSindo}}</td>
+														<td>{{hDay.State}}</td>
+														<td>{{hDay.Name}}</td>
+												</tr>
+												{{{{/raw-helper}}}}
+										</tbody>
+						</table>
+					</div>
+			</div>
+	</div>
+</div> {{! /history }}

@@ -1,0 +1,26 @@
+ESLint quick guide
+=========================
+
+ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. In many ways, it is similar to JSLint and JSHint with a few exceptions:
+
+https://github.com/eslint/eslint
+
+# Local Installation and Usage
+npm install eslint --save-dev
+
+eslint --init
+
+? How would you like to configure ESLint? Answer questions about your style
+? Are you using ECMAScript 6 features? Yes
+? Are you using ES6 modules? Yes
+? Where will your code run? Browser, Node
+? Do you use CommonJS? Yes
+? Do you use JSX? Yes
+? Do you use React No
+? What style of indentation do you use? Tabs
+? What quotes do you use for strings? Single
+? What line endings do you use? Unix
+? Do you require semicolons? Yes
+? What format do you want your config file to be in? JavaScript
+
+eslint yourfile.js

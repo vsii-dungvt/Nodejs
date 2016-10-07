@@ -1,0 +1,46 @@
+<div class="wrapper-panel-left">
+	<div class="information_other_left">
+		<ul class="nav nav-pills nav-stacked information_other_left_1">
+	        <li class="colorpurplelight active">
+	        	<a data-toggle="pill" id="trainTab" ng-click="selectMenu('鉄道運行', 'train')" href="#train">鉄道運行 
+	        		<span ng-show="hasTrainUpdate" class="colorred">!</span>
+	        	</a>
+	        </li>
+	        <li class="colorpurplelight">
+	        	<a data-toggle="pill" ng-click="selectMenu('一時滞在施設', 'building')" href="#building">一時滞在施設 
+	        		<span ng-show="hasBuildingUpdate" class="colorred">!</span>
+	        	</a>
+	        </li>
+	        <li class="colorpurplelight">
+	        	<a data-toggle="pill" ng-click="selectMenu('医療機関', 'medical')" href="#medical">医療機関 
+	        		<span ng-show="hasMedicalUpdate" class="colorred">!</span>
+	        	</a>
+	        </li>
+	        {{#mIf roleA '||' roleB}}
+	        <li class="colorpurplelight">
+	        	<a data-toggle="pill" ng-click="selectMenu('被害情報', 'damage')" href="#damage">被害情報 
+	        		<span ng-show="hasTrainStatisticUpdate || hasBuildingUpdate 
+	        			|| hasMedicalStatisticUpdate || hasPreventionUpdate" class="colorred">!</span>
+	        	</a>
+	        </li>
+	        {{/mIf}}
+      	</ul>
+      	{{#mIf roleA '||' roleB}}
+		<div class="information_other_left_2">
+			<div class="sub_info"> 長周期地震動階級 </div>
+	        <div class="sub_info">
+	        	<div class="sub_info_half sub_info_half_boder">高層階</div>
+	            <div class="sub_info_half state_color_darkred">4</div>
+	        </div>
+	        <div class="sub_info">
+	        	<div class="sub_info_half sub_info_half_boder">中層階</div>
+	            <div class="sub_info_half state_color_orange">3</div>
+	        </div>
+	        <div class="sub_info">
+	        	<div class="sub_info_half sub_info_half_boder">低層階</div>
+	            <div class="sub_info_half state_color_yellow">2</div>
+	        </div>
+		</div>
+		{{/mIf}}
+	</div>
+</div>

@@ -1,0 +1,39 @@
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/ng-device-detector/ng-device-detector.min.js"></script>
+<script type="text/javascript" src="bower_components/re-tree/re-tree.min.js"></script>
+<script src="/sip/public/javascripts/login/login.js"></script>
+<script src="/sip/public/javascripts/login/controller/login_ctrl.js"></script>
+<script src="/sip/public/javascripts/login/services/login_services.js"></script>
+<div id="login" ng-controller="LoginCtrl as vm">
+<section class="container">
+	<section class="login-form">
+        <form method="post" action="/sip/authen" role="login">
+          <section>
+            <h4 class="text-center">Login</h4>
+              {{#if error}}
+	              <div class="alert alert-danger">
+	              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	              {{error}}
+	              </div>
+              {{/if}}
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="text-primary glyphicon glyphicon-user"></span></div>
+                	<input type="text" class="form-control input-lg" id="username" name="username" placeholder="Username" data-error="Username is invalid"
+                   		pattern="^[^ @]+$" required>
+              	</div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="text-primary glyphicon glyphicon-lock"></span></div>
+               		<input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" data-error="Password is invalid" required>
+			   	<div class="help-block with-errors"></div>
+            </div>
+            </div>
+
+            <button type="submit" name="go" class="btn btn-block btn-success">Sign in</button>
+          </section>
+        </form>
+	</section>
+</section>
+</div>

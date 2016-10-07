@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/sip/public/libs/ng-notification/ngNotificationsBar.min.css">
+<script src="/sip/public/libs/ng-notification/ngNotificationsBar.min.js"></script>
+<script src="/sip/public/javascripts/admin/admin.js"></script>
+<script src="/sip/public/javascripts/admin/controller/AdminCtrl.js"></script>
+<script src="/sip/public/javascripts/admin/services/AdminService.js"></script>
+<script>
+	var data = {{{toJSON info}}};
+	angular.module('sip.admin').constant('TokyoSitecodes', data.TokyoSitecodes);
+</script>
+<div id="admin" ng-controller="AdminCtrl">
+<notifications-bar class="notifications"></notifications-bar>
+<div class="wrapper">
+  <div class="wrapper-panel-top">
+  	{{{{raw-helper}}}}
+    <p class="textright_paneltop">{{curLocation}}</p>
+    {{{{/raw-helper}}}}
+    	{{#if isAuthenticated}}
+        <a href="/sip/authen/logout" class="link_logout_paneltop">logout</a>
+        {{/if}}
+    </div>
+  <div class="wrapper-panel-left"> &nbsp; </div>
+  <div class="wrapper-panel-center">
+    <div class="wrapper_left"> <img class="logoLogin" src="/sip/public/images/SIP_logo1.png"/>
+      <p class="titleLogoLogin">エリア災害対応支援アプリケーション（システム管理者）</p>
+            <div class="content_admin">
+
+            {{> admin_demosetting}}
+            {{> admin_managerment}}
+
+            </div>
+      </div>
+  </div>
+  <div class="wrapper-panel-right"> &nbsp; </div>
+  <footer>
+    <div class="GroupButtonFooter">
+      <div class="col-groupButton text-center">&nbsp;</div>
+      <div class="col-groupButton text-center">
+        <a id="btnDemoSetting" class="btn btn-default display_block">デモ設定</a>
+        <button id="btnSubmitDemo" ng-click="addDemo()" class="btn btn-primary display_none" type="submit">登録</button>
+        <button id="btnBackToSettingAdmin" class="btn btn-default display_none">キャンセル・戻る</button>
+      </div>
+      <div class="col-groupButton text-center">
+        <a id="btnUpdateListUser" href="#" class="btn btn-primary" type="submit">更新</a>
+        <a id="btnBackCollapset" href="#" class="btn btn-default display_none">戻る</a>
+      </div>
+    </div>
+    <div class="footerLogin">
+		<img class="imgKokakuin" src="/sip/public/images/Kogakuin_logo.png" />
+		<img class="imgSIP" src="/sip/public/images/SIP_logo2.png" />
+	</div>
+  </footer>
+</div>
+</div>

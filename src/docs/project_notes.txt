@@ -1,0 +1,12 @@
+# https://docs.strongloop.com/display/public/LB/Command-line+reference
+# https://docs.strongloop.com/display/public/LB/Model+definition+JSON+file#ModeldefinitionJSONfile-Generalpropertyproperties
+slc loopback
+
+slc loopback:datasource
+
+slc loopback:model
+
+slc loopback:boot-script
+
+# angular ui-bootstrap
+# https://angular-ui.github.io/bootstrap/

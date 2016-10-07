@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/sip/public/libs/ng-notification/ngNotificationsBar.min.css">
+<script src="/sip/public/libs/ng-notification/ngNotificationsBar.min.js"></script>
+<script src="/sip/public/javascripts/login/login.js"></script>
+<script src="/sip/public/javascripts/login/services/LoginService.js"></script>
+<script src="/sip/public/javascripts/login/controller/LoginCtrl.js"></script>
+<div id="login" ng-controller="LoginCtrl">
+    <notifications-bar class="notifications"></notifications-bar>
+	<div class="wrapper" >
+	    <div class="wrapper-panel-top">
+	    	<p class="textright_paneltop">Top</p>
+	    	{{#if isAuthenticated}}
+	        <a href="/sip/authen/logout" class="link_logout_paneltop">logout</a>
+	        {{/if}}
+	    </div>
+	    <div class="wrapper-panel-left">
+		    <div class="information_other_left">
+		    </div>
+	  	</div>
+	    <div class="wrapper-panel-center">
+	        <div class="wrapper_left">
+	        	{{> header}}
+	        	{{#if  isAdmin}}
+	            <div class="AlertInfo admin">
+	            </div>
+	            {{else}}
+	            <div class="AlertInfo">
+	            	{{#if  mainStatus.curPhase}} {{! only show if has disaster }}
+	                <p>身の安全を確保！！</p>
+	                {{/if}}
+	            </div>
+	            {{/if}}
+	            <div ng-app="" class="panelLogin">
+	                <form name="loginform" ng-submit="loginform.$valid && doLogin()">
+	                    <table class="tableLogin">
+	                        <tr>
+	                            <td>
+	                            	{{#if isGeneralUser}}
+	                                <input autofocus class="form-controll-textLogin" type="text" ng-model="username"
+	                                    placeholder="login ID" >
+	                                {{else}}
+	                                <input autofocus class="form-controll-textLogin" type="text" ng-model="username"
+	                                    placeholder="login ID" required >
+	                                {{/if}}
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td>
+	                            	{{#if isGeneralUser}}
+	                                <input class="form-controll-textLogin" type="password" 
+	                            		ng-model="password" placeholder="Password">
+	                                {{else}}
+	                                <input class="form-controll-textLogin" type="password" 
+	                            		ng-model="password" placeholder="Password" required >
+	                                {{/if}}
+	                            </td>
+	                        </tr>
+	                        {{#unless isAdmin}}
+	                        <tr>
+	                            <td><a class="link-registerLogin" href="#">新規登録</a></td>
+	                        </tr>
+	                        {{/unless}}
+	                    </table>
+	                    <div class="panelButtonlogin">
+	                        <button class="btn btn-primary" type="submit">
+	                            {{titleButtonLogin}}
+	                        </button>
+	                        {{#if isGeneralUser}}
+	                        <p class="guildeNewUser">←　ID未登録でもアプリを開始できます</p>
+	                        {{/if}}
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	    {{#unless isAdmin}}
+	    {{> menu_right}}
+	    {{/unless}}
+	    <div class="footerLogin">
+	        <a href="#"><img class="imgKokakuin" src="/sip/public/images/Kogakuin_logo.png" /></a>
+	        <a href="https://www.sip-bousai.jp/" target="_blank"><img class="imgSIP" src="/sip/public/images/SIP_logo2.png"></a>
+	    </div>
+	</div>
+</div>

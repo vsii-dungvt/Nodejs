@@ -1,0 +1,38 @@
+{{#if isAuthenticated}}
+<div class="wrapper_map">
+    <div id="mapBtn" ng-click="selectMap()" class="map_btn">新宿<br/>MAP</div>
+    <a href="/sip/public/files/actions/file_shinjuku_rule.pdf" target="_blank" class="guidelines_btn">行動<br/>指針</a>
+    <a href="https://www.sip-bousai.jp/" target="_blank" class="estimation_btn">推定<br/>情報</a>
+</div>
+{{/if}}
+{{#if isPhone}}
+<img class="logoLoginMB" src="/sip/public/images/SIP_logo1.png"/>
+{{else}}
+<img class="logoLogin" src="/sip/public/images/SIP_logo1.png"/>
+{{/if}}
+<p class="titleLogoLogin">エリア災害対応支援アプリケーション（{{loginUser}}）</p>
+{{#unless  isAdmin}}
+{{#if isPhone}}
+<div class="group_notification_alertMB">
+	<table class="tableGroupNotificationMB">
+{{else}}
+<div class="wrapper_main_status">
+    <table class="table_main_status">
+{{/if}}
+        <tr>
+            {{#if roleB}}
+            {{{{raw-helper}}}}
+            <td ng-repeat="phase in phases">
+                <img class="mainStatusImg" id="mainStatusImg_{{phase.id}}" ng-click="changePhase($index)"
+                    ng-src="{{phase.imageSrc}}"/>
+            </td>
+            {{{{/raw-helper}}}}
+            {{else}}
+            {{#each mainStatus.disasterStatus}}
+            <td><img class="mainStatusImg" src="{{imageSrc}}"/></td>
+            {{/each}}
+            {{/if}}
+        </tr>
+    </table>
+</div>
+{{/unless}}

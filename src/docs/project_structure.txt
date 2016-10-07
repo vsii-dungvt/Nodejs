@@ -1,0 +1,24 @@
+# Project structure
+- src                  ## root folder of source code
+-- client              ## loopback client implementation if any
+-- docs                ## development documents
+-- logs                ## logs files
+-- node_modules        ## node.js modules packages
+-- scripts             ## scripts for auto-start on boot or cron job...
+-- server              ## the important part, most of works on this
+---- bin               ## bin to store the specific scripts file like create database schema or initialize database data
+---- boot              ## boot, loopback standard folder. It uses for running scripts on early of starting app
+---- common            ## to hold the common scripts or utils scripts, this usually use at global level of app
+---- models            ## models, loopback standard folder
+---- routes            ## express-routes will be there
+---- views             ## express-ejs presentation pages will be there
+---- www               ## the statics resource like html/javascript/css
+---- app.js            ## loopback app module
+---- controller.js     ## controller of the app
+---- index.js          ## start point of the app
+---- others configuration files   ## these contain most of the configuration for the app as database, loopback models, middleware...
+-- app-config.json     ## application configuration information, it especially designed for this app properties
+-- package.json        ## base on node.js it describes for the packages/modules are using in project, refer doc: https://docs.npmjs.com/files/package.json
+-- test                ## test scripts will be put there
+-- changelogs.txt      ## what is changed will be loged into it 
+-- README.txt          ## readme text file

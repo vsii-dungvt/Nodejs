@@ -1,0 +1,13 @@
+# Install NodeJS for Linux CentOS 7 (x86_64)
+## Login to CentOS system with valid account, switch to root
+## Download Binary file
+curl -O https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.xz
+## Create nodejs directory
+mkdir -p /usr/local/node-v4.4.7
+## Extract nodejs to the folder
+tar --strip-components 1 -xvf node-v4.4.7-linux-x64.tar.xz -C /usr/local/node-v4.4.7
+## Make links for nodejs cmds 
+ln -sf /usr/local/node-v4.4.7/bin/* /usr/local/bin/
+## Verify installation
+node -v
+npm -v

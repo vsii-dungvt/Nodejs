@@ -1,0 +1,16 @@
+# NodeJS version 4.* (stable one) prerequiresite python 2.7
+
+# Runtime Environment parameters
+## For Production
+### App mode
+export NODE_ENV=production
+### Cluster's workers
+export WORKERS=4
+### Whether enable security check?
+export ENABLE_ROLE_CHECK=true
+
+## For Development
+### enable cronjob?
+export ENABLE_CRONJOB=false
+### enable cluster mode?
+export IS_CLUSTER=false
